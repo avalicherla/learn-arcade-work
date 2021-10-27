@@ -1,0 +1,58 @@
+import arcade
+
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+RADIUS_SUN = 40
+
+
+def draw_sun(x, y):
+    # This function draws a sun
+    arcade.draw_circle_filled(x, y, RADIUS_SUN, (184, 67, 20, 130))
+
+    #Top, Bottom, Left, and Right Straight Line
+    arcade.draw_line(x, y, x - 80, y, (184, 67, 20, 130), 3)
+    arcade.draw_line(x, y, x + 80, y, (184, 67, 20, 130), 3)
+    arcade.draw_line(x, y, x, y - 80, (184, 67, 20, 130), 3)
+    arcade.draw_line(x, y, x, y + 80, (184, 67, 20, 130), 3)
+
+    # Top right, left, bottom right, left diagonal
+    arcade.draw_line(x, y, x + 50, y + 50, (184, 67, 20, 130), 3)
+    arcade.draw_line(x, y, x + 50, y - 50, (184, 67, 20, 130), 3)
+    arcade.draw_line(x, y, x - 50, y + 50, (184, 67, 20, 130), 3)
+    arcade.draw_line(x, y, x - 50, y - 50, (184, 67, 20, 130), 3)
+
+def draw_cactus(x, y):
+    #This is a function that draws a cactus
+    arcade.draw_rectangle_filled(x + 100, y + 150, 30, 70, arcade.color.DARK_GREEN)
+
+
+
+def on_draw(delta_time):
+    """ Draw everything """
+    arcade.start_render()
+
+    # code for the sunset background
+    arcade.draw_lrtb_rectangle_filled(0, SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_HEIGHT - 450, (235, 70, 21, 150))
+
+    # code for drawing sand
+    arcade.draw_lrtb_rectangle_filled(0, SCREEN_WIDTH, SCREEN_HEIGHT - 450, 0, (222, 192, 124, 150))
+
+
+    draw_cactus(-50, -50)
+    draw_cactus(200, 10)
+    draw_cactus(550, -30)
+    draw_sun(on_draw.sun_x, SCREEN_HEIGHT- 100)
+    on_draw.sun_x += 1
+
+on_draw.sun_x = 150
+
+def main():
+
+    arcade.open_window(SCREEN_WIDTH, SCREEN_HEIGHT, "Drawing Example")
+    arcade.set_background_color(arcade.csscolor.WHITE)
+
+    arcade.schedule(on_draw, 1 / 60)
+    arcade.run()
+
+
+main()
