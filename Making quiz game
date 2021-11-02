@@ -1,0 +1,62 @@
+x = 0
+quiz1 = input("What is pi * 2 rounded to the nearest whole number")
+if quiz1 == "6":
+    print("You are decent at math.")
+    x += 1
+else:
+    print("You are so dumb.")
+
+
+print("Why are you taking this class?")
+quiz2_answer = input("(A. You like programming      B. You were forced              C. Your friends are doing it           D. Other")
+if quiz2_answer.lower() == "b":
+    print("nice job you did something with your life")
+    x += 1
+
+else:
+    print("You need to do something with your life.")
+
+
+print("How many hours are there in the day")
+quiz3_answer = input("A. 24      B. 23     C. 22")
+if quiz3_answer.lower() == "a":
+    print("you arent special everyone knows this")
+    x += 1
+
+else:
+    print("How do you actually not know this")
+
+
+print("Who is the smartest person in the world")
+quiz4_answer = input("Abhishek or Andy")
+if quiz4_answer.lower() == "abhishek":
+    print("good job")
+    x += 1
+
+else:
+    print("you are wrong")
+
+
+print("what does LOL stand for")
+quiz5_answer = input("A. Laugh out loud       B. loser octopus loser     C. Loud out laugh")
+if quiz5_answer.lower() == "A":
+    print("good job")
+    x += 1
+
+else:
+    print("......")
+
+if x == 1:
+    print("you got a 20%")
+
+if x == 2
+    print("you got a 40%")
+
+if x == 3
+    print("you got a 60%")
+
+if x == 4
+    print("you got an 80%")
+
+if x == 5
+    print("you got a 100%")
